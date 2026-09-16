@@ -188,7 +188,9 @@
           </div>
         </div>
 
-        <form class="request-form" id="requestForm">
+        <form class="request-form" id="requestForm" name="service-request" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="service-request">
+          <p class="hidden-field"><label>Don’t fill this out: <input name="bot-field"></label></p>
           <label>
             What do you need done?
             <textarea id="task" name="task" rows="4" placeholder="Example: I need someone to clean my kitchen and living room this weekend." required></textarea>
@@ -226,7 +228,7 @@
           <button class="btn btn-primary btn-full" type="submit">Send Request</button>
           <p class="form-note">On mobile, this opens a prefilled text with the request details.</p>
           <div id="formSuccess" class="success-message" hidden>
-            Your request is ready to send by text.
+            Thanks! Your request was submitted successfully.
           </div>
         </form>
       </div>
