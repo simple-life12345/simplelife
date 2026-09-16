@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Life — Everyday help, made simple</title>
+  <meta name="description" content="Simple Life helps you get everyday tasks done without the hassle." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Simple Life home">
+        <span class="brand-symbol" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3.5c2.2 3.1 5 5.6 8.3 7.4-3.3 1.8-6.1 4.3-8.3 7.6-2.2-3.3-5-5.8-8.3-7.6C7 9.1 9.8 6.6 12 3.5z"/>
+          </svg>
+        </span>
+        <span>Simple Life</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#how">How it works</a>
+        <a href="#services">Services</a>
+        <a href="#helpers">Become a helper</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-shape shape-one"></div>
+      <div class="hero-shape shape-two"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy">
+                    <h1>Life gets easier<br><span>when you can just ask.</span></h1>
+          <p class="hero-text">
+            Tell Simple Life what you need done and we’ll help connect you with the right local person for the task.
+          </p>
+
+          <div class="quick-request-card">
+            <label for="heroTask">What do you need help with?</label>
+            <div class="quick-request-row">
+              <input id="heroTask" type="text" placeholder="Cleaning, organizing, yard work..." />
+              <button id="heroContinue" class="quick-request-button" type="button">
+                Continue
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="trust-row">
+            <span>Easy to request</span>
+            <span>Local help</span>
+            <span>No complicated app</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-ring ring-one"></div>
+          <div class="visual-ring ring-two"></div>
+
+          <div class="visual-center">
+            <div class="center-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 18.5V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8l-4 1.5z"/><path d="M8 9h8M8 13h5"/></svg>
+            </div>
+            <span>Tell us what you need</span>
+          </div>
+
+          <div class="visual-chip chip-cleaning">
+            <svg viewBox="0 0 24 24"><path d="M14 4l6 6"/><path d="M12.5 5.5L6 12"/><path d="M5 11l8 8"/><path d="M4 14l6 6"/></svg>
+            Cleaning
+          </div>
+
+          <div class="visual-chip chip-yard">
+            <svg viewBox="0 0 24 24"><path d="M4 20c8 0 14-6 16-16-8 2-14 8-16 16z"/><path d="M5 19c4-4 7-7 12-10"/></svg>
+            Yard work
+          </div>
+
+          <div class="visual-chip chip-organizing">
+            <svg viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4z"/><path d="M4 7v10l8 4 8-4V7M12 11v10"/></svg>
+            Organizing
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-heading centered">
+          <div class="eyebrow">How it works</div>
+          <h2>Simple from start to finish.</h2>
+          <p>Tell us what needs to get done, and we’ll help take it from there.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step-card">
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 19.5V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8l-4 2.5z"/><path d="M8 9h8M8 13h5"/></svg>
+            </div>
+            <span class="step-num">01</span>
+            <h3>Tell us what you need</h3>
+            <p>Describe the task and when you want it done.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M3 20c.5-4 2.5-6 5-6s4.5 2 5 6M11 20c.4-3.2 2.1-5 5-5 2.5 0 4.2 1.7 5 5"/></svg>
+            </div>
+            <span class="step-num">02</span>
+            <h3>We find the right help</h3>
+            <p>We connect the request with the right kind of local helper.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 11.5L12 5l8 6.5V20H4z"/><path d="M9 20v-6h6v6"/></svg>
+            </div>
+            <span class="step-num">03</span>
+            <h3>Get it done</h3>
+            <p>Confirm the details and cross the task off your list.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-heading split-heading">
+          <div>
+            <div class="eyebrow">What we help with</div>
+            <h2>Choose a service or just tell us what you need.</h2>
+          </div>
+          <p>Clicking a service takes you straight into the request form with that service already selected.</p>
+        </div>
+
+        <div class="service-grid three">
+          <button class="service-card service-choice" type="button" data-service="Cleaning">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M14 4l6 6"/><path d="M12.5 5.5L6 12"/><path d="M5 11l8 8"/><path d="M4 14l6 6"/></svg>
+            </div>
+            <h3>Cleaning</h3>
+            <p>Home cleaning, tidying, and household reset help.</p>
+            <span class="service-link">Request cleaning <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </button>
+
+          <button class="service-card service-choice" type="button" data-service="Yard Work">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 20c8 0 14-6 16-16-8 2-14 8-16 16z"/><path d="M5 19c4-4 7-7 12-10"/></svg>
+            </div>
+            <h3>Yard Work</h3>
+            <p>Basic outdoor chores, cleanup, and seasonal help.</p>
+            <span class="service-link">Request yard help <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </button>
+
+          <button class="service-card service-choice" type="button" data-service="Organizing">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4z"/><path d="M4 7v10l8 4 8-4V7M12 11v10"/></svg>
+            </div>
+            <h3>Organizing</h3>
+            <p>Closets, rooms, unpacking, and household organization.</p>
+            <span class="service-link">Request organizing <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section request-section" id="request">
+      <div class="container request-grid">
+        <div class="request-copy">
+          <div class="eyebrow">Tell us what you need</div>
+          <h2>One request. That’s it.</h2>
+          <p>You don’t need to search through a bunch of options. Just tell us what you want done.</p>
+
+          <div class="future-card">
+            <div class="future-symbol">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M9 12h6M12 9v6"/></svg>
+            </div>
+            <div>
+              <span>Coming later</span>
+              <strong>TaskTap</strong>
+              <p>A physical, voice-enabled button designed to make requesting help from Simple Life even easier.</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="request-form" id="requestForm">
+          <label>
+            What do you need done?
+            <textarea id="task" name="task" rows="4" placeholder="Example: I need someone to clean my kitchen and living room this weekend." required></textarea>
+          </label>
+
+          <div class="form-row">
+            <label>
+              ZIP code
+              <input id="zip" name="zip" type="text" inputmode="numeric" placeholder="21701" maxlength="10" required>
+            </label>
+            <label>
+              When do you need it?
+              <select id="timing" name="timing" required>
+                <option value="">Choose one</option>
+                <option>As soon as possible</option>
+                <option>This week</option>
+                <option>This weekend</option>
+                <option>Next week</option>
+                <option>I’m flexible</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              First name
+              <input id="name" name="name" type="text" placeholder="Your name" required>
+            </label>
+            <label>
+              Email
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            </label>
+          </div>
+
+          <button class="btn btn-primary btn-full" type="submit">Send Request</button>
+          <p class="form-note">On mobile, this opens a prefilled text with the request details.</p>
+          <div id="formSuccess" class="success-message" hidden>
+            Your request is ready to send by text.
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section helpers-section" id="helpers">
+      <div class="container helper-card">
+        <div>
+          <div class="eyebrow light">For local helpers</div>
+          <h2>Good at getting things done?</h2>
+          <p>Simple Life is building a network of dependable people for cleaning, yard work, organizing, and other everyday household tasks.</p>
+        </div>
+        <a class="btn btn-white" href="helper.html">Become a Helper</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div>
+        <a class="brand footer-brand" href="#top">
+          <span class="brand-symbol dark">
+            <svg viewBox="0 0 24 24"><path d="M12 3.5c2.2 3.1 5 5.6 8.3 7.4-3.3 1.8-6.1 4.3-8.3 7.6-2.2-3.3-5-5.8-8.3-7.6C7 9.1 9.8 6.6 12 3.5z"/></svg>
+          </span>
+          <span>Simple Life</span>
+        </a>
+        <p>Everyday help, made simple.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#how">How it works</a>
+        <a href="#services">Services</a>
+        <a href="#request">Request help</a>
+        <a href="helper.html">Become a helper</a>
+      </div>
+    </div>
+    <div class="container legal">
+      <span>© 2026 Simple Life. Early concept website.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
