@@ -19,15 +19,19 @@ function installFreshRequestVisual() {
     <div class="request-flow-visual" id="requestFlowVisual" aria-label="Simple Life request preview">
       <div class="flow-ring flow-ring-one"></div>
       <div class="flow-ring flow-ring-two"></div>
-      <div class="flow-orb orb-one"></div>
-      <div class="flow-orb orb-two"></div>
+      <div class="flow-ring flow-ring-three"></div>
 
-      <div class="flow-logo" id="flowLogo">
-        <svg viewBox="0 0 64 64" aria-hidden="true">
-          <path class="flow-home" d="M17 31 32 19l15 12v18H17z"/>
-          <path class="flow-door" d="M27 49V37h10v12"/>
-          <path class="flow-leaf" d="M43 16c6-.8 10 1.2 12 5.8-6 .8-10-1.2-12-5.8z"/>
-          <path class="flow-check" d="m23 33 6 6 13-15"/>
+      <div class="logo-piece piece-top"><span></span></div>
+      <div class="logo-piece piece-right"><span></span></div>
+      <div class="logo-piece piece-bottom"><span></span></div>
+      <div class="logo-piece piece-left"><span></span></div>
+
+      <div class="assembled-logo" id="assembledLogo" aria-hidden="true">
+        <svg viewBox="0 0 64 64">
+          <path d="M17 31 32 19l15 12v18H17z"/>
+          <path d="M27 49V37h10v12"/>
+          <path d="M43 16c6-.8 10 1.2 12 5.8-6 .8-10-1.2-12-5.8z"/>
+          <path class="final-check" d="m22 33 7 7 14-16"/>
         </svg>
       </div>
 
@@ -45,197 +49,220 @@ function installFreshRequestVisual() {
       --ink:#354448;
       --muted:#7b888a;
       --paper:#fbfcfa;
-      --sage:#bdcdbf;
-      --sage-dark:#758f7c;
-      --sage-soft:#f3f7f3;
-      --blue:#aec7d1;
-      --blue-soft:#f2f7f8;
-      --line:#e5ece8;
-      --rose:#a8c0cb;
-      --rose-deep:#7898a6;
-      --plum:#607a75;
+      --sage:#c1d1c4;
+      --sage-dark:#78917f;
+      --sage-soft:#f4f8f4;
+      --blue:#b8ccd5;
+      --blue-soft:#f3f7f8;
+      --line:#e7ede9;
+      --rose:#aec5cf;
+      --rose-deep:#809ea9;
+      --plum:#667e79;
     }
 
     body{background:#fbfcfa}
-    .site-header{background:rgba(251,252,250,.90)}
+    .site-header{background:rgba(251,252,250,.92)}
     .hero{
       background:
-        radial-gradient(circle at 84% 12%, rgba(174,199,209,.18), transparent 32%),
-        radial-gradient(circle at 10% 92%, rgba(189,205,191,.18), transparent 31%),
+        radial-gradient(circle at 84% 12%, rgba(184,204,213,.16), transparent 32%),
+        radial-gradient(circle at 10% 92%, rgba(193,209,196,.16), transparent 31%),
         linear-gradient(180deg,#fcfcfa 0%,#f8faf8 100%) !important;
     }
-    .services-section{background:#f3f7f4 !important}
-    .request-section{background:#fafcfb !important}
-    .btn-primary{background:#8faeb9 !important;box-shadow:0 12px 28px rgba(143,174,185,.17)!important}
-    .btn-primary:hover{background:#7898a6 !important}
-    .hero h1 span,.service-link{color:#7898a6 !important}
-    .service-icon,.step-icon,.center-icon{background:#f2f6f3 !important;color:#7898a6 !important}
+    .services-section{background:#f4f7f4 !important}
+    .request-section{background:#fbfcfa !important}
+    .btn-primary{background:#92acb5 !important;box-shadow:0 12px 28px rgba(146,172,181,.16)!important}
+    .btn-primary:hover{background:#7f9ba5 !important}
+    .hero h1 span,.service-link{color:#7f9ba5 !important}
+    .service-icon,.step-icon,.center-icon{background:#f3f6f3 !important;color:#7f9ba5 !important}
 
     .request-flow-visual{
       position:relative;
-      height:350px;
-      margin-top:22px;
+      height:360px;
+      margin-top:18px;
       overflow:visible;
       isolation:isolate;
     }
     .flow-ring{
       position:absolute;
       left:50%;
-      top:49%;
+      top:47%;
       border-radius:50%;
       transform:translate(-50%,-50%);
       pointer-events:none;
+      transform-origin:center;
     }
     .flow-ring-one{
-      width:320px;
-      height:320px;
-      border:1px solid rgba(120,152,166,.14);
+      width:326px;height:326px;
+      border:1px solid rgba(128,158,169,.13);
+      animation:idleRingA 8s ease-in-out infinite;
     }
     .flow-ring-two{
-      width:238px;
-      height:238px;
-      border:1px solid rgba(117,143,124,.13);
+      width:254px;height:254px;
+      border:1px solid rgba(120,145,127,.12);
+      animation:idleRingB 10s ease-in-out infinite;
     }
-    .flow-ring-one:before,
-    .flow-ring-two:before{
-      content:"";
-      position:absolute;
-      inset:10%;
-      border-radius:50%;
-      border:1px dashed rgba(120,152,166,.08);
+    .flow-ring-three{
+      width:182px;height:182px;
+      border:1px dashed rgba(128,158,169,.09);
+      animation:idleRingA 12s ease-in-out infinite reverse;
     }
-    .flow-orb{
-      position:absolute;
-      border-radius:50%;
-      filter:blur(.1px);
-      z-index:-1;
-    }
-    .orb-one{
-      width:76px;height:76px;
-      left:19%;top:20%;
-      background:rgba(189,205,191,.17);
-      animation:driftOne 7s ease-in-out infinite;
-    }
-    .orb-two{
-      width:54px;height:54px;
-      right:18%;bottom:18%;
-      background:rgba(174,199,209,.18);
-      animation:driftTwo 8s ease-in-out infinite;
-    }
-    .flow-logo{
+
+    .logo-piece{
       position:absolute;
       left:50%;top:47%;
-      width:138px;height:138px;
-      transform:translate(-50%,-50%);
-      border-radius:50%;
+      width:52px;height:52px;
+      border-radius:17px;
       display:grid;
       place-items:center;
-      background:rgba(255,255,255,.88);
-      border:1px solid rgba(229,236,232,.95);
-      box-shadow:0 18px 46px rgba(64,84,88,.07);
-      transition:transform .55s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease;
+      background:rgba(255,255,255,.90);
+      border:1px solid rgba(228,236,232,.95);
+      box-shadow:0 12px 30px rgba(65,85,89,.06);
+      opacity:0;
+      z-index:3;
     }
-    .flow-logo svg{width:62px;height:62px;color:#6f8d83}
-    .flow-home,.flow-door,.flow-leaf,.flow-check{
-      fill:none;
-      stroke:currentColor;
-      stroke-width:2.7;
-      stroke-linecap:round;
-      stroke-linejoin:round;
+    .logo-piece span{
+      width:20px;height:20px;
+      border-radius:7px;
+      border:2px solid #7f9b91;
+      position:relative;
     }
-    .flow-leaf{color:#89a796}
-    .flow-check{
+    .piece-top{transform:translate(-50%,-168px)}
+    .piece-right{transform:translate(116px,-50%)}
+    .piece-bottom{transform:translate(-50%,116px)}
+    .piece-left{transform:translate(-168px,-50%)}
+    .piece-top span:after,.piece-bottom span:after{
+      content:"";position:absolute;left:4px;right:4px;top:8px;height:2px;border-radius:9px;background:#9bb7a2;
+    }
+    .piece-left span:after,.piece-right span:after{
+      content:"";position:absolute;top:4px;bottom:4px;left:8px;width:2px;border-radius:9px;background:#9bb7a2;
+    }
+
+    .assembled-logo{
+      position:absolute;
+      left:50%;top:47%;
+      width:142px;height:142px;
+      transform:translate(-50%,-50%) scale(.72);
+      border-radius:50%;
+      display:grid;place-items:center;
+      background:rgba(255,255,255,.91);
+      border:1px solid rgba(229,236,232,.96);
+      box-shadow:0 18px 46px rgba(65,85,89,.07);
+      opacity:0;
+      z-index:4;
+    }
+    .assembled-logo svg{width:64px;height:64px;color:#6f8b81}
+    .assembled-logo path{
+      fill:none;stroke:currentColor;stroke-width:2.7;stroke-linecap:round;stroke-linejoin:round;
+    }
+    .assembled-logo .final-check{
       color:#6f947d;
       stroke-width:3.4;
-      stroke-dasharray:42;
-      stroke-dashoffset:42;
-      opacity:0;
+      stroke-dasharray:44;
+      stroke-dashoffset:44;
     }
+
     .flow-copy{
       position:absolute;
-      left:50%;bottom:-2px;
+      left:50%;bottom:0;
       transform:translateX(-50%);
-      min-width:260px;
+      min-width:270px;
       text-align:center;
     }
     .flow-kicker{
-      display:block;
-      margin-bottom:3px;
-      font-size:.68rem;
-      text-transform:uppercase;
-      letter-spacing:.13em;
-      color:#90a09d;
-      font-weight:800;
+      display:block;margin-bottom:3px;font-size:.68rem;text-transform:uppercase;
+      letter-spacing:.13em;color:#94a39f;font-weight:800;
     }
-    .flow-copy strong{
-      display:block;
-      font:800 1.05rem "Manrope",sans-serif;
-      color:#354448;
-    }
-    .flow-copy>span:last-child{
-      display:block;
-      margin-top:3px;
-      color:#7b888a;
-      font-size:.8rem;
-    }
-    .request-flow-visual.is-thinking .flow-logo{
-      animation:logoBreathe 1.45s ease-in-out infinite;
-      box-shadow:0 20px 52px rgba(120,152,166,.12);
-    }
-    .request-flow-visual.is-thinking .flow-ring-one{animation:ringPulse 2.2s ease-in-out infinite}
-    .request-flow-visual.is-thinking .flow-ring-two{animation:ringPulse 2.2s ease-in-out .3s infinite}
-    .request-flow-visual.is-complete .flow-logo{
-      transform:translate(-50%,-50%) scale(1.07);
-      box-shadow:0 20px 54px rgba(111,148,125,.14);
-    }
-    .request-flow-visual.is-complete .flow-check{
+    .flow-copy strong{display:block;font:800 1.05rem "Manrope",sans-serif;color:#354448}
+    .flow-copy>span:last-child{display:block;margin-top:3px;color:#7b888a;font-size:.8rem}
+
+    .request-flow-visual.is-thinking .flow-ring-one{animation:fastRingA .9s linear infinite}
+    .request-flow-visual.is-thinking .flow-ring-two{animation:fastRingB .72s linear infinite}
+    .request-flow-visual.is-thinking .flow-ring-three{animation:fastRingA .58s linear infinite reverse}
+
+    .request-flow-visual.is-assembling .logo-piece{opacity:1}
+    .request-flow-visual.is-assembling .piece-top{animation:pieceTopIn .8s cubic-bezier(.2,.85,.25,1) forwards}
+    .request-flow-visual.is-assembling .piece-right{animation:pieceRightIn .8s cubic-bezier(.2,.85,.25,1) .07s forwards}
+    .request-flow-visual.is-assembling .piece-bottom{animation:pieceBottomIn .8s cubic-bezier(.2,.85,.25,1) .14s forwards}
+    .request-flow-visual.is-assembling .piece-left{animation:pieceLeftIn .8s cubic-bezier(.2,.85,.25,1) .21s forwards}
+    .request-flow-visual.is-assembling .flow-ring-one{animation:collapseRing 1s cubic-bezier(.25,.8,.25,1) forwards}
+    .request-flow-visual.is-assembling .flow-ring-two{animation:collapseRing .9s cubic-bezier(.25,.8,.25,1) .05s forwards}
+    .request-flow-visual.is-assembling .flow-ring-three{animation:collapseRing .8s cubic-bezier(.25,.8,.25,1) .1s forwards}
+
+    .request-flow-visual.is-complete .logo-piece{opacity:0}
+    .request-flow-visual.is-complete .assembled-logo{
       opacity:1;
-      animation:drawFlowCheck .52s ease .15s forwards;
+      animation:logoSnap .58s cubic-bezier(.16,1,.3,1) forwards;
     }
-    .request-flow-visual.is-complete .flow-home,
-    .request-flow-visual.is-complete .flow-door,
-    .request-flow-visual.is-complete .flow-leaf{
-      opacity:.25;
-      transition:opacity .35s ease;
+    .request-flow-visual.is-complete .final-check{animation:drawFinalCheck .48s ease .28s forwards}
+    .request-flow-visual.is-complete .flow-ring-one,
+    .request-flow-visual.is-complete .flow-ring-two,
+    .request-flow-visual.is-complete .flow-ring-three{opacity:.34;animation:none}
+
+    @keyframes idleRingA{
+      0%,100%{transform:translate(-50%,-50%) scale(1) rotate(0deg);opacity:.9}
+      50%{transform:translate(-50%,-50%) scale(1.025) rotate(4deg);opacity:.58}
     }
-    .request-flow-visual.is-complete .flow-ring-one{
-      animation:finishRing .8s ease;
+    @keyframes idleRingB{
+      0%,100%{transform:translate(-50%,-50%) scale(1.015) rotate(0deg);opacity:.72}
+      50%{transform:translate(-50%,-50%) scale(.985) rotate(-5deg);opacity:1}
     }
-    @keyframes driftOne{
-      0%,100%{transform:translate(0,0)}
-      50%{transform:translate(18px,-12px)}
+    @keyframes fastRingA{
+      from{transform:translate(-50%,-50%) rotate(0deg) scale(1)}
+      to{transform:translate(-50%,-50%) rotate(360deg) scale(1.025)}
     }
-    @keyframes driftTwo{
-      0%,100%{transform:translate(0,0)}
-      50%{transform:translate(-14px,10px)}
+    @keyframes fastRingB{
+      from{transform:translate(-50%,-50%) rotate(360deg) scale(1)}
+      to{transform:translate(-50%,-50%) rotate(0deg) scale(.985)}
     }
-    @keyframes logoBreathe{
-      0%,100%{transform:translate(-50%,-50%) scale(1)}
-      50%{transform:translate(-50%,-50%) scale(1.035)}
-    }
-    @keyframes ringPulse{
-      0%,100%{transform:translate(-50%,-50%) scale(1);opacity:1}
-      50%{transform:translate(-50%,-50%) scale(1.035);opacity:.55}
-    }
-    @keyframes finishRing{
+    @keyframes collapseRing{
       0%{transform:translate(-50%,-50%) scale(1);opacity:1}
-      55%{transform:translate(-50%,-50%) scale(1.06);opacity:.3}
+      100%{transform:translate(-50%,-50%) scale(.54);opacity:.18}
+    }
+    @keyframes pieceTopIn{
+      0%{transform:translate(-50%,-168px) scale(.92);opacity:0}
+      28%{opacity:1}
+      100%{transform:translate(-50%,-50%) scale(.7);opacity:.95}
+    }
+    @keyframes pieceRightIn{
+      0%{transform:translate(116px,-50%) scale(.92);opacity:0}
+      28%{opacity:1}
+      100%{transform:translate(-50%,-50%) scale(.7);opacity:.95}
+    }
+    @keyframes pieceBottomIn{
+      0%{transform:translate(-50%,116px) scale(.92);opacity:0}
+      28%{opacity:1}
+      100%{transform:translate(-50%,-50%) scale(.7);opacity:.95}
+    }
+    @keyframes pieceLeftIn{
+      0%{transform:translate(-168px,-50%) scale(.92);opacity:0}
+      28%{opacity:1}
+      100%{transform:translate(-50%,-50%) scale(.7);opacity:.95}
+    }
+    @keyframes logoSnap{
+      0%{transform:translate(-50%,-50%) scale(.72);opacity:0}
+      65%{transform:translate(-50%,-50%) scale(1.07);opacity:1}
       100%{transform:translate(-50%,-50%) scale(1);opacity:1}
     }
-    @keyframes drawFlowCheck{to{stroke-dashoffset:0}}
+    @keyframes drawFinalCheck{to{stroke-dashoffset:0}}
 
     @media(max-width:880px){
-      .request-flow-visual{height:320px;max-width:420px;margin-left:auto;margin-right:auto}
+      .request-flow-visual{height:330px;max-width:430px;margin-left:auto;margin-right:auto}
     }
     @media(max-width:620px){
-      .request-flow-visual{height:300px}
-      .flow-ring-one{width:270px;height:270px}
-      .flow-ring-two{width:202px;height:202px}
-      .flow-logo{width:122px;height:122px}
-      .flow-copy{bottom:-4px}
+      .request-flow-visual{height:310px}
+      .flow-ring-one{width:276px;height:276px}
+      .flow-ring-two{width:216px;height:216px}
+      .flow-ring-three{width:154px;height:154px}
+      .assembled-logo{width:126px;height:126px}
+      .piece-top{transform:translate(-50%,-145px)}
+      .piece-right{transform:translate(93px,-50%)}
+      .piece-bottom{transform:translate(-50%,93px)}
+      .piece-left{transform:translate(-145px,-50%)}
     }
     @media(prefers-reduced-motion:reduce){
       .request-flow-visual *{animation:none!important;transition:none!important}
+      .request-flow-visual.is-complete .assembled-logo{opacity:1;transform:translate(-50%,-50%) scale(1)}
+      .request-flow-visual.is-complete .final-check{stroke-dashoffset:0}
     }
   `;
   document.head.appendChild(style);
@@ -247,7 +274,7 @@ function setFlowTask(taskText) {
   const detail = document.getElementById("flowDetail");
   if (!wrap) return;
 
-  wrap.classList.remove("is-complete");
+  wrap.classList.remove("is-complete", "is-assembling");
   wrap.classList.add("is-thinking");
 
   const cleaned = (taskText || "").trim();
@@ -260,10 +287,18 @@ function completeFlow() {
   const title = document.getElementById("flowTitle");
   const detail = document.getElementById("flowDetail");
   if (!wrap) return;
-  wrap.classList.remove("is-thinking");
-  wrap.classList.add("is-complete");
-  if (title) title.textContent = "Request sent";
-  if (detail) detail.textContent = "One less thing on your list.";
+
+  wrap.classList.remove("is-thinking", "is-complete");
+  wrap.classList.add("is-assembling");
+  if (title) title.textContent = "Putting it together";
+  if (detail) detail.textContent = "Almost there.";
+
+  setTimeout(() => {
+    wrap.classList.remove("is-assembling");
+    wrap.classList.add("is-complete");
+    if (title) title.textContent = "Request sent";
+    if (detail) detail.textContent = "One less thing on your list.";
+  }, 1050);
 }
 
 function wireForm(formId, successId, sendingText, sentText) {
