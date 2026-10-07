@@ -18,18 +18,32 @@
     .helper-intro{padding-top:28px}
     .helper-intro h1{margin:14px 0 20px;font:800 clamp(3.4rem,6vw,5.6rem)/.96 "Manrope",sans-serif;letter-spacing:-.055em;color:var(--ink)}
     .helper-intro>p{margin:0;max-width:510px;font-size:1.08rem;color:var(--muted)}
-    .helper-service-list{margin-top:34px;display:grid;gap:12px;max-width:500px}
-    .helper-service{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:center;padding:16px 18px;background:rgba(255,255,255,.68);border:1px solid var(--line);border-radius:18px}
-    .helper-service span{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#f3f7f4;color:var(--blue-deep);font-weight:800}
-    .helper-service strong{display:block;font:800 1rem "Manrope",sans-serif}.helper-service small{display:block;margin-top:2px;color:var(--muted);font-size:.82rem}
+
+    /* Match the original rounded-square Simple Life mark */
+    .helper-page-new~* .brand-mark,.site-header .brand-mark{width:34px;height:34px;position:relative;display:inline-block}
+    .site-header .brand-mark span{position:absolute;width:12px;height:12px;border-radius:4px;background:var(--dark)}
+    .site-header .brand-mark span:nth-child(1){left:1px;top:1px}.site-header .brand-mark span:nth-child(2){right:1px;top:1px}.site-header .brand-mark span:nth-child(3){left:1px;bottom:1px}.site-header .brand-mark span:nth-child(4){right:1px;bottom:1px}
+
+    .helper-service-list{margin-top:34px;display:flex;flex-direction:column;gap:12px;max-width:470px;align-items:flex-start}
+    .helper-service{display:flex;gap:12px;align-items:center;width:auto;min-width:315px;max-width:100%;padding:12px 18px 12px 12px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:999px;box-shadow:0 10px 28px rgba(59,79,83,.055)}
+    .helper-service span{width:38px;height:38px;flex:0 0 38px;border-radius:50%;display:grid;place-items:center;background:#f1f6f3;color:var(--blue-deep);font-weight:800;font-size:.78rem}
+    .helper-service strong{display:block;font:800 .96rem "Manrope",sans-serif}.helper-service small{display:block;margin-top:1px;color:var(--muted);font-size:.8rem}
+    .helper-service:nth-child(2){margin-left:24px}.helper-service:nth-child(3){margin-left:8px}
+
     .helper-note{margin-top:24px;padding:15px 17px;border-left:3px solid var(--sage-deep);background:rgba(255,255,255,.5);border-radius:0 14px 14px 0;color:#667775;font-size:.86rem;max-width:500px}
     .helper-form-card{background:#fff;border:1px solid var(--line);border-radius:32px;padding:36px;box-shadow:0 28px 80px rgba(59,79,83,.08)}
     .helper-form-card h2{margin:0 0 8px;font:800 1.8rem "Manrope",sans-serif;letter-spacing:-.03em}.helper-form-card>.form-sub{margin:0 0 26px;color:var(--muted);font-size:.92rem}
     .helper-form-card label{display:block;font-size:.88rem;font-weight:700;margin-bottom:16px}.helper-form-card input,.helper-form-card textarea,.helper-form-card select{width:100%;margin-top:7px;padding:14px 15px;border:1px solid #dbe5e1;border-radius:13px;background:#fafcfb;color:var(--ink);outline:none}.helper-form-card input:focus,.helper-form-card textarea:focus,.helper-form-card select:focus{border-color:#9eb5bd;box-shadow:0 0 0 3px rgba(158,181,189,.12);background:#fff}
-    .helper-form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.helper-task-label{margin:2px 0 10px;font-size:.88rem;font-weight:700}.task-options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}.task-option{position:relative}.task-option input{position:absolute;opacity:0;pointer-events:none}.task-option span{display:block;padding:13px 10px;text-align:center;border:1px solid #dbe5e1;border-radius:13px;background:#fafcfb;font-weight:700;font-size:.86rem;cursor:pointer;transition:.18s ease}.task-option input:checked+span{background:#eef5f1;border-color:#a9c1b0;color:#506b59}.helper-submit{width:100%;border:0;border-radius:14px;background:var(--ink);color:#fff;padding:15px;font-weight:800;cursor:pointer}.helper-submit:disabled{opacity:.65;cursor:not-allowed}.helper-form-note{text-align:center;color:#8a9796;font-size:.75rem;margin:11px 0 0}
+    .helper-form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.helper-task-label{margin:2px 0 10px;font-size:.88rem;font-weight:700}
+    .task-options{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+    .task-option{position:relative}.task-option input{position:absolute;opacity:0;pointer-events:none}
+    .task-option span{display:block;padding:11px 17px;text-align:center;border:1px solid #dbe5e1;border-radius:999px;background:rgba(250,252,251,.95);font-weight:700;font-size:.85rem;cursor:pointer;transition:.18s ease;box-shadow:0 7px 18px rgba(59,79,83,.035)}
+    .task-option span:hover{transform:translateY(-1px);background:#fff}
+    .task-option input:checked+span{background:#eef5f1;border-color:#a9c1b0;color:#506b59;box-shadow:0 8px 22px rgba(80,107,89,.08)}
+    .helper-submit{width:100%;border:0;border-radius:14px;background:var(--ink);color:#fff;padding:15px;font-weight:800;cursor:pointer}.helper-submit:disabled{opacity:.65;cursor:not-allowed}.helper-form-note{text-align:center;color:#8a9796;font-size:.75rem;margin:11px 0 0}
     .helper-back{margin-left:auto;padding:11px 16px;border-radius:999px;background:var(--ink);color:#fff;font-weight:700;font-size:.9rem}
-    @media(max-width:900px){.helper-layout-new{grid-template-columns:1fr;gap:40px}.helper-intro{padding-top:0}.task-options{grid-template-columns:1fr}.helper-form-row{grid-template-columns:1fr}}
-    @media(max-width:620px){.helper-page-new{padding:60px 0 76px}.helper-intro h1{font-size:3.15rem}.helper-form-card{padding:24px;border-radius:24px}.helper-back{font-size:.82rem;padding:10px 13px}}
+    @media(max-width:900px){.helper-layout-new{grid-template-columns:1fr;gap:40px}.helper-intro{padding-top:0}.helper-form-row{grid-template-columns:1fr}.helper-service:nth-child(2),.helper-service:nth-child(3){margin-left:0}}
+    @media(max-width:620px){.helper-page-new{padding:60px 0 76px}.helper-intro h1{font-size:3.15rem}.helper-form-card{padding:24px;border-radius:24px}.helper-back{font-size:.82rem;padding:10px 13px}.helper-service{min-width:0;width:100%;border-radius:24px}}
   </style>
 </head>
 <body>
