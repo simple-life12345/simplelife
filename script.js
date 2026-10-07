@@ -12,44 +12,43 @@ async function submitNetlifyForm(form) {
 }
 
 
-function setRequestProgress(step, statusText) {
-  const fill = document.getElementById("progressFill");
-  const status = document.getElementById("progressStatus");
-  const card = document.getElementById("requestProgressCard");
-  const steps = document.querySelectorAll(".progress-step");
-  if (!steps.length) return;
 
-  steps.forEach((el, index) => {
-    const number = index + 1;
-    el.classList.toggle("complete", number < step);
-    el.classList.toggle("active", number === step);
-  });
-
-  if (fill) {
-    if (step <= 1) fill.style.height = "0%";
-    else if (step === 2) fill.style.height = "50%";
-    else fill.style.height = "100%";
-  }
-
-  if (status && statusText) status.textContent = statusText;
-
-  if (card) {
-    card.classList.remove("animate");
-    void card.offsetWidth;
-    card.classList.add("animate");
-    setTimeout(() => card.classList.remove("animate"), 600);
-  }
+function resetRequestMotion() {
+  const card = document.getElementById("requestMotionCard");
+  const title = document.getElementById("motionTitle");
+  const status = document.getElementById("motionStatus");
+  if (!card) return;
+  card.classList.remove("motion-start","motion-collapse","motion-done");
+  if (title) title.textContent = "Get things done";
+  if (status) status.textContent = "Tell us what you need";
 }
 
-function startRequestProgress() {
-  setRequestProgress(1, "Starting");
-  setTimeout(() => setRequestProgress(2, "Getting details"), 520);
-  setTimeout(() => setRequestProgress(1, "Ready to send"), 1150);
+function startRequestMotion() {
+  const card = document.getElementById("requestMotionCard");
+  const status = document.getElementById("motionStatus");
+  if (!card) return;
+  resetRequestMotion();
+  void card.offsetWidth;
+  card.classList.add("motion-start");
+  if (status) status.textContent = "Getting your request ready";
+  setTimeout(() => {
+    if (status) status.textContent = "Add the details below";
+  }, 1100);
 }
 
-function completeRequestProgress() {
-  setRequestProgress(2, "Request received");
-  setTimeout(() => setRequestProgress(3, "Done"), 550);
+function completeRequestMotion() {
+  const card = document.getElementById("requestMotionCard");
+  const title = document.getElementById("motionTitle");
+  const status = document.getElementById("motionStatus");
+  if (!card) return;
+  card.classList.remove("motion-start");
+  card.classList.add("motion-collapse");
+  if (status) status.textContent = "Request received";
+  setTimeout(() => {
+    card.classList.add("motion-done");
+    if (title) title.textContent = "Done";
+    if (status) status.textContent = "Your request was sent";
+  }, 620);
 }
 
 function wireForm(formId, successId, sendingText, sentText) {
@@ -65,7 +64,7 @@ function wireForm(formId, successId, sendingText, sentText) {
       button.textContent = sendingText;
       if (success) success.hidden = true;
       await submitNetlifyForm(form);
-      if (formId === "requestForm") completeRequestProgress();
+      if (formId === "requestForm") completeRequestMotion();
       form.reset();
       button.textContent = sentText;
       if (success) success.hidden = false;
@@ -83,7 +82,7 @@ wireForm("requestForm", "formSuccess", "Sending…", "Sent");
 wireForm("helperForm", "helperSuccess", "Submitting…", "Submitted");
 
 function goToRequest(prefill = "") {
-  startRequestProgress();
+  startRequestMotion();
   const requestSection = document.getElementById("request");
   const taskField = document.getElementById("task");
   if (prefill && taskField) {
