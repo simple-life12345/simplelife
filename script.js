@@ -11,6 +11,47 @@ async function submitNetlifyForm(form) {
   if (!response.ok) throw new Error("Form submission failed.");
 }
 
+
+function setRequestProgress(step, statusText) {
+  const fill = document.getElementById("progressFill");
+  const status = document.getElementById("progressStatus");
+  const card = document.getElementById("requestProgressCard");
+  const steps = document.querySelectorAll(".progress-step");
+  if (!steps.length) return;
+
+  steps.forEach((el, index) => {
+    const number = index + 1;
+    el.classList.toggle("complete", number < step);
+    el.classList.toggle("active", number === step);
+  });
+
+  if (fill) {
+    if (step <= 1) fill.style.height = "0%";
+    else if (step === 2) fill.style.height = "50%";
+    else fill.style.height = "100%";
+  }
+
+  if (status && statusText) status.textContent = statusText;
+
+  if (card) {
+    card.classList.remove("animate");
+    void card.offsetWidth;
+    card.classList.add("animate");
+    setTimeout(() => card.classList.remove("animate"), 600);
+  }
+}
+
+function startRequestProgress() {
+  setRequestProgress(1, "Starting");
+  setTimeout(() => setRequestProgress(2, "Getting details"), 520);
+  setTimeout(() => setRequestProgress(1, "Ready to send"), 1150);
+}
+
+function completeRequestProgress() {
+  setRequestProgress(2, "Request received");
+  setTimeout(() => setRequestProgress(3, "Done"), 550);
+}
+
 function wireForm(formId, successId, sendingText, sentText) {
   const form = document.getElementById(formId);
   if (!form) return;
@@ -24,6 +65,7 @@ function wireForm(formId, successId, sendingText, sentText) {
       button.textContent = sendingText;
       if (success) success.hidden = true;
       await submitNetlifyForm(form);
+      if (formId === "requestForm") completeRequestProgress();
       form.reset();
       button.textContent = sentText;
       if (success) success.hidden = false;
@@ -41,6 +83,7 @@ wireForm("requestForm", "formSuccess", "Sending…", "Sent");
 wireForm("helperForm", "helperSuccess", "Submitting…", "Submitted");
 
 function goToRequest(prefill = "") {
+  startRequestProgress();
   const requestSection = document.getElementById("request");
   const taskField = document.getElementById("task");
   if (prefill && taskField) {
