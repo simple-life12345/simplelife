@@ -176,14 +176,42 @@
           <h2>One request. That’s it.</h2>
           <p>You don’t need to search through a bunch of options. Just tell us what you want done.</p>
 
-          <div class="future-card">
-            <div class="future-symbol">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M9 12h6M12 9v6"/></svg>
+          <div class="request-progress-card" id="requestProgressCard" aria-label="Request progress">
+            <div class="progress-card-top">
+              <span class="progress-eyebrow">Your request</span>
+              <span class="progress-status" id="progressStatus">Ready</span>
             </div>
-            <div>
-              <span>Coming later</span>
-              <strong>TaskTap</strong>
-              <p>A physical, voice-enabled button designed to make requesting help from Simple Life even easier.</p>
+
+            <div class="request-progress-steps">
+              <div class="progress-track">
+                <span class="progress-fill" id="progressFill"></span>
+              </div>
+
+              <div class="progress-step active">
+                <div class="progress-circle">1</div>
+                <div>
+                  <strong>Ask</strong>
+                  <span>Tell us what you need</span>
+                </div>
+              </div>
+
+              <div class="progress-step">
+                <div class="progress-circle">2</div>
+                <div>
+                  <strong>Match</strong>
+                  <span>We find the right help</span>
+                </div>
+              </div>
+
+              <div class="progress-step">
+                <div class="progress-circle">
+                  <svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-8"/></svg>
+                </div>
+                <div>
+                  <strong>Done</strong>
+                  <span>Task off your list</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -226,7 +254,7 @@
           </div>
 
           <button class="btn btn-primary btn-full" type="submit">Send Request</button>
-          <p class="form-note">On mobile, this opens a prefilled text with the request details.</p>
+          <p class="form-note">We’ll review your request and follow up with the next steps.</p>
           <div id="formSuccess" class="success-message" hidden>
             Thanks! Your request was submitted successfully.
           </div>
