@@ -176,42 +176,34 @@
           <h2>One request. That’s it.</h2>
           <p>You don’t need to search through a bunch of options. Just tell us what you want done.</p>
 
-          <div class="request-progress-card" id="requestProgressCard" aria-label="Request progress">
-            <div class="progress-card-top">
-              <span class="progress-eyebrow">Your request</span>
-              <span class="progress-status" id="progressStatus">Ready</span>
+          <div class="request-motion-card" id="requestMotionCard" aria-label="Request animation">
+            <div class="motion-oval oval-outer"></div>
+            <div class="motion-oval oval-inner"></div>
+
+            <div class="motion-chip motion-cleaning">
+              <svg viewBox="0 0 24 24"><path d="M14 4l6 6"/><path d="M12.5 5.5L6 12"/><path d="M5 11l8 8"/><path d="M4 14l6 6"/></svg>
+              <span>Cleaning</span>
             </div>
 
-            <div class="request-progress-steps">
-              <div class="progress-track">
-                <span class="progress-fill" id="progressFill"></span>
-              </div>
+            <div class="motion-chip motion-organizing">
+              <svg viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4z"/><path d="M4 7v10l8 4 8-4V7M12 11v10"/></svg>
+              <span>Organizing</span>
+            </div>
 
-              <div class="progress-step active">
-                <div class="progress-circle">1</div>
-                <div>
-                  <strong>Ask</strong>
-                  <span>Tell us what you need</span>
-                </div>
-              </div>
+            <div class="motion-chip motion-yard">
+              <svg viewBox="0 0 24 24"><path d="M4 20c8 0 14-6 16-16-8 2-14 8-16 16z"/><path d="M5 19c4-4 7-7 12-10"/></svg>
+              <span>Yard work</span>
+            </div>
 
-              <div class="progress-step">
-                <div class="progress-circle">2</div>
-                <div>
-                  <strong>Match</strong>
-                  <span>We find the right help</span>
-                </div>
+            <div class="motion-center">
+              <div class="motion-check">
+                <svg viewBox="0 0 52 52" aria-hidden="true">
+                  <circle class="check-circle" cx="26" cy="26" r="21"></circle>
+                  <path class="check-path" d="M16 27l7 7 14-16"></path>
+                </svg>
               </div>
-
-              <div class="progress-step">
-                <div class="progress-circle">
-                  <svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-8"/></svg>
-                </div>
-                <div>
-                  <strong>Done</strong>
-                  <span>Task off your list</span>
-                </div>
-              </div>
+              <strong id="motionTitle">Get things done</strong>
+              <span id="motionStatus">Tell us what you need</span>
             </div>
           </div>
         </div>
