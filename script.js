@@ -13,42 +13,20 @@ async function submitNetlifyForm(form) {
 
 
 
-function resetRequestMotion() {
-  const card = document.getElementById("requestMotionCard");
-  const title = document.getElementById("motionTitle");
-  const status = document.getElementById("motionStatus");
-  if (!card) return;
-  card.classList.remove("motion-start","motion-collapse","motion-done");
-  if (title) title.textContent = "Get things done";
-  if (status) status.textContent = "Tell us what you need";
+
+function setChecklistTask(taskText) {
+  const label = document.getElementById("activeTaskText");
+  const wrap = document.getElementById("requestChecklist");
+  if (label) label.textContent = taskText || "Your task";
+  if (wrap) wrap.classList.remove("is-complete");
 }
 
-function startRequestMotion() {
-  const card = document.getElementById("requestMotionCard");
-  const status = document.getElementById("motionStatus");
-  if (!card) return;
-  resetRequestMotion();
-  void card.offsetWidth;
-  card.classList.add("motion-start");
-  if (status) status.textContent = "Getting your request ready";
-  setTimeout(() => {
-    if (status) status.textContent = "Add the details below";
-  }, 1100);
-}
-
-function completeRequestMotion() {
-  const card = document.getElementById("requestMotionCard");
-  const title = document.getElementById("motionTitle");
-  const status = document.getElementById("motionStatus");
-  if (!card) return;
-  card.classList.remove("motion-start");
-  card.classList.add("motion-collapse");
-  if (status) status.textContent = "Request received";
-  setTimeout(() => {
-    card.classList.add("motion-done");
-    if (title) title.textContent = "Done";
-    if (status) status.textContent = "Your request was sent";
-  }, 620);
+function completeChecklistTask() {
+  const wrap = document.getElementById("requestChecklist");
+  if (!wrap) return;
+  wrap.classList.remove("is-complete");
+  void wrap.offsetWidth;
+  wrap.classList.add("is-complete");
 }
 
 function wireForm(formId, successId, sendingText, sentText) {
@@ -64,7 +42,7 @@ function wireForm(formId, successId, sendingText, sentText) {
       button.textContent = sendingText;
       if (success) success.hidden = true;
       await submitNetlifyForm(form);
-      if (formId === "requestForm") completeRequestMotion();
+      if (formId === "requestForm") completeChecklistTask();
       form.reset();
       button.textContent = sentText;
       if (success) success.hidden = false;
@@ -82,7 +60,7 @@ wireForm("requestForm", "formSuccess", "Sending…", "Sent");
 wireForm("helperForm", "helperSuccess", "Submitting…", "Submitted");
 
 function goToRequest(prefill = "") {
-  startRequestMotion();
+  setChecklistTask(prefill || "Your task");
   const requestSection = document.getElementById("request");
   const taskField = document.getElementById("task");
   if (prefill && taskField) {
