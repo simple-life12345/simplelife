@@ -291,3 +291,35 @@ svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-l
 
 .hidden-field{display:none!important}
 button:disabled{opacity:.7;cursor:not-allowed;transform:none!important}
+
+
+/* Request progress animation beside form */
+.request-progress-card{
+  margin-top:30px;border:1px solid var(--line);border-radius:22px;padding:20px;
+  background:#fff;box-shadow:0 14px 38px rgba(57,42,50,.06)
+}
+.progress-card-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.progress-eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#8d858a}
+.progress-status{font-size:.75rem;font-weight:800;color:var(--rose-deep);background:#f8ede9;border-radius:999px;padding:7px 10px}
+.request-progress-steps{position:relative;display:grid;gap:16px}
+.progress-track{position:absolute;left:19px;top:21px;bottom:21px;width:4px;background:#eee7e3;border-radius:999px;overflow:hidden}
+.progress-fill{display:block;width:100%;height:0%;background:var(--rose);border-radius:999px;transition:height .52s ease}
+.progress-step{position:relative;z-index:1;display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:center;color:#9a9096}
+.progress-circle{
+  width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#f5f0ed;
+  border:3px solid #fff;box-shadow:0 0 0 1px #e9dfda;font-size:.78rem;font-weight:800;transition:all .34s ease
+}
+.progress-circle svg{width:18px;height:18px}
+.progress-step strong{display:block;font:800 .92rem "Manrope",sans-serif;color:#7f757b}
+.progress-step span{display:block;margin-top:2px;font-size:.78rem}
+.progress-step.active .progress-circle{
+  background:var(--blue-soft);color:var(--rose-deep);box-shadow:0 0 0 1px rgba(200,111,99,.25);transform:scale(1.06)
+}
+.progress-step.active strong,.progress-step.complete strong{color:var(--ink)}
+.progress-step.complete .progress-circle{background:var(--rose);color:#fff;box-shadow:0 0 0 1px rgba(200,111,99,.3)}
+.request-progress-card.animate{animation:progressCardPulse .55s ease}
+@keyframes progressCardPulse{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@media (prefers-reduced-motion:reduce){
+  .request-progress-card.animate{animation:none}
+  .progress-fill,.progress-circle{transition:none}
+}
