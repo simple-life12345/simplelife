@@ -37,7 +37,7 @@
           <h1>More life.<br><span>Less little stuff.</span></h1>
           <p>Tell us what needs to get done. We’ll help connect you with someone local who can take it off your plate.</p>
           <div class="hero-request-bar">
-            <input id="heroTask" type="text" placeholder="What do you need help with?" aria-label="What do you need help with?">
+            <input id="heroTask" type="text" spellcheck="false" placeholder="What do you need help with?" aria-label="What do you need help with?">
             <button id="heroContinue" type="button">Request help <span>→</span></button>
           </div>
           <div class="hero-proof"><span>Local help</span><span>Simple requests</span><span>No complicated app</span></div>
@@ -101,9 +101,9 @@
           <form id="requestForm" name="service-request" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="service-request">
             <p class="hidden-field"><label>Don’t fill this out: <input name="bot-field"></label></p>
-            <label>What do you need done?<textarea id="task" name="task" rows="4" placeholder="Example: I need help cleaning my kitchen this weekend." required></textarea></label>
-            <div class="form-row"><label>ZIP code<input id="zip" name="zip" type="text" inputmode="numeric" placeholder="21701" required></label><label>When?<select id="timing" name="timing" required><option value="">Choose one</option><option>As soon as possible</option><option>This week</option><option>This weekend</option><option>Next week</option><option>I’m flexible</option></select></label></div>
-            <div class="form-row"><label>First name<input id="name" name="name" type="text" placeholder="Your name" required></label><label>Email<input id="email" name="email" type="email" placeholder="you@example.com" required></label></div>
+            <label>What do you need done?<textarea id="task" name="task" rows="4" spellcheck="false" placeholder="Example: I need help cleaning my kitchen this weekend." required></textarea></label>
+            <div class="form-row"><label>ZIP code<input id="zip" name="zip" type="text" inputmode="numeric" spellcheck="false" placeholder="21701" required></label><label>When?<select id="timing" name="timing" required><option value="">Choose one</option><option>As soon as possible</option><option>This week</option><option>This weekend</option><option>Next week</option><option>I’m flexible</option></select></label></div>
+            <div class="form-row"><label>First name<input id="name" name="name" type="text" spellcheck="false" placeholder="Your name" required></label><label>Email<input id="email" name="email" type="email" spellcheck="false" placeholder="you@example.com" required></label></div>
             <button class="submit-btn" type="submit">Send request</button>
             <p class="form-note">We’ll review your request and follow up with the next steps.</p>
             <div id="formSuccess" class="success-message" hidden>Thanks! Your request was submitted successfully.</div>
