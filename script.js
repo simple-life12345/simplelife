@@ -117,3 +117,25 @@ function wireForm(formId, successId, sendingText, sentText) {
 wireForm("requestForm", "formSuccess", "Sending…", "Sent");
 wireForm("helperForm", "helperSuccess", "Submitting…", "Submitted");
 setVisualState("idle");
+
+// Softer, less boxy Simple Life mark.
+const softerMarkStyle = document.createElement("style");
+softerMarkStyle.textContent = `
+  .brand-mark span,
+  .mini-mark i,
+  .assembled-mark span {
+    border-radius: 70% 45% 62% 52% / 52% 68% 44% 70% !important;
+  }
+  .brand-mark span:nth-child(1), .mini-mark i:nth-child(1), .assembled-mark span:nth-child(1){transform:rotate(-8deg)}
+  .brand-mark span:nth-child(2), .mini-mark i:nth-child(2), .assembled-mark span:nth-child(2){transform:rotate(7deg)}
+  .brand-mark span:nth-child(3), .mini-mark i:nth-child(3), .assembled-mark span:nth-child(3){transform:rotate(6deg)}
+  .brand-mark span:nth-child(4), .mini-mark i:nth-child(4), .assembled-mark span:nth-child(4){transform:rotate(-6deg)}
+  .piece{
+    border-radius: 58% 42% 64% 46% / 48% 64% 42% 62% !important;
+  }
+  .pc1{rotate:-8deg}
+  .pc2{rotate:7deg}
+  .pc3{rotate:6deg}
+  .pc4{rotate:-6deg}
+`;
+document.head.appendChild(softerMarkStyle);
