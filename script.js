@@ -11,6 +11,33 @@ async function submitNetlifyForm(form) {
   if (!response.ok) throw new Error("Form submission failed.");
 }
 
+const menuToggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+
+function closeMobileMenu() {
+  if (!menuToggle || !mobileMenu) return;
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Open menu");
+  mobileMenu.hidden = true;
+}
+
+if (menuToggle && mobileMenu) {
+  menuToggle.addEventListener("click", () => {
+    const open = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", String(!open));
+    menuToggle.setAttribute("aria-label", open ? "Open menu" : "Close menu");
+    mobileMenu.hidden = open;
+  });
+
+  mobileMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMobileMenu);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 980) closeMobileMenu();
+  });
+}
+
 function setVisualState(state, detailText = "") {
   const visual = document.getElementById("requestVisual");
   const title = document.getElementById("motionTitle");
@@ -40,15 +67,24 @@ function setVisualState(state, detailText = "") {
 function goToRequest(prefill = "") {
   const requestSection = document.getElementById("request");
   const taskField = document.getElementById("task");
+
   if (prefill && taskField) {
     if (prefill === "Cleaning") taskField.value = "I need help with cleaning.";
     else if (prefill === "Yard Work") taskField.value = "I need help with yard work.";
     else if (prefill === "Organizing") taskField.value = "I need help with organizing.";
     else taskField.value = prefill;
   }
-  setVisualState("thinking", taskField?.value ? "We’ll take it from here." : "Getting your request ready.");
+
+  setVisualState(
+    "thinking",
+    taskField?.value ? "We’ll take it from here." : "Getting your request ready."
+  );
+
   requestSection?.scrollIntoView({ behavior: "smooth", block: "start" });
-  setTimeout(() => taskField?.focus(), 500);
+
+  setTimeout(() => {
+    if (taskField && window.innerWidth > 640) taskField.focus();
+  }, 450);
 }
 
 document.querySelectorAll(".service-choice").forEach(card => {
@@ -57,6 +93,7 @@ document.querySelectorAll(".service-choice").forEach(card => {
 
 const heroContinue = document.getElementById("heroContinue");
 const heroTask = document.getElementById("heroTask");
+
 if (heroContinue && heroTask) {
   heroContinue.addEventListener("click", () => goToRequest(heroTask.value.trim()));
   heroTask.addEventListener("keydown", event => {
@@ -81,33 +118,45 @@ function wireForm(formId, successId, sendingText, sentText) {
 
   form.addEventListener("submit", async event => {
     event.preventDefault();
+
     const button = form.querySelector('button[type="submit"]');
     const success = document.getElementById(successId);
-    const originalText = button.textContent;
+    const originalText = button?.textContent || "";
 
     try {
-      button.disabled = true;
-      button.textContent = sendingText;
+      if (button) {
+        button.disabled = true;
+        button.textContent = sendingText;
+      }
       if (success) success.hidden = true;
 
-      if (formId === "requestForm") setVisualState("thinking", "Sending your request.");
+      if (formId === "requestForm") {
+        setVisualState("thinking", "Sending your request.");
+      }
+
       await submitNetlifyForm(form);
 
       if (formId === "requestForm") {
         setVisualState("assembling");
-        setTimeout(() => setVisualState("complete"), 1050);
+        setTimeout(() => setVisualState("complete"), 850);
       }
 
       form.reset();
-      button.textContent = sentText;
+
+      if (button) button.textContent = sentText;
       if (success) success.hidden = false;
+
       setTimeout(() => {
-        button.textContent = originalText;
-        button.disabled = false;
+        if (button) {
+          button.textContent = originalText;
+          button.disabled = false;
+        }
       }, 1800);
     } catch (error) {
-      button.disabled = false;
-      button.textContent = originalText;
+      if (button) {
+        button.disabled = false;
+        button.textContent = originalText;
+      }
       alert("Something went wrong. Please try again.");
       console.error(error);
     }
@@ -117,25 +166,3 @@ function wireForm(formId, successId, sendingText, sentText) {
 wireForm("requestForm", "formSuccess", "Sending…", "Sent");
 wireForm("helperForm", "helperSuccess", "Submitting…", "Submitted");
 setVisualState("idle");
-
-// Softer, less boxy Simple Life mark.
-const softerMarkStyle = document.createElement("style");
-softerMarkStyle.textContent = `
-  .brand-mark span,
-  .mini-mark i,
-  .assembled-mark span {
-    border-radius: 70% 45% 62% 52% / 52% 68% 44% 70% !important;
-  }
-  .brand-mark span:nth-child(1), .mini-mark i:nth-child(1), .assembled-mark span:nth-child(1){transform:rotate(-8deg)}
-  .brand-mark span:nth-child(2), .mini-mark i:nth-child(2), .assembled-mark span:nth-child(2){transform:rotate(7deg)}
-  .brand-mark span:nth-child(3), .mini-mark i:nth-child(3), .assembled-mark span:nth-child(3){transform:rotate(6deg)}
-  .brand-mark span:nth-child(4), .mini-mark i:nth-child(4), .assembled-mark span:nth-child(4){transform:rotate(-6deg)}
-  .piece{
-    border-radius: 58% 42% 64% 46% / 48% 64% 42% 62% !important;
-  }
-  .pc1{rotate:-8deg}
-  .pc2{rotate:7deg}
-  .pc3{rotate:6deg}
-  .pc4{rotate:-6deg}
-`;
-document.head.appendChild(softerMarkStyle);
