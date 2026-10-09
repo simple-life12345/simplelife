@@ -2,122 +2,285 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Simple Life — Everyday help, made simple</title>
-  <meta name="description" content="Simple Life connects you with local help for cleaning, yard work, organizing, and everyday tasks." />
+  <meta name="description" content="Simple Life connects you with local help for cleaning, yard work, and organizing." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="#top" aria-label="Simple Life home">
-        <span class="brand-mark"><span></span><span></span><span></span><span></span></span>
-        <span>Simple Life</span>
+        <span class="ribbon-logo ribbon-logo-small" aria-hidden="true">
+          <svg viewBox="0 0 96 96" role="img">
+            <defs>
+              <linearGradient id="brandTeal" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#91c9c5"/>
+                <stop offset="1" stop-color="#2f7b83"/>
+              </linearGradient>
+              <linearGradient id="brandDeep" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#245f69"/>
+                <stop offset="1" stop-color="#163f4c"/>
+              </linearGradient>
+              <linearGradient id="brandSand" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f2dfbb"/>
+                <stop offset="1" stop-color="#d8b982"/>
+              </linearGradient>
+            </defs>
+            <path d="M16 25C32 12 53 9 71 18c7 3 12 8 15 13-15-7-29-8-42-3-12 4-21 4-28-3Z" fill="url(#brandTeal)"/>
+            <path d="M15 34c18-10 38-11 55-3 6 3 11 6 15 11-15-5-29-5-42 0-12 5-21 3-28-8Z" fill="url(#brandSand)"/>
+            <path d="M18 43c18-7 38-5 53 5 12 8 15 21 8 32-4 7-10 12-17 15 7-8 8-16 4-23-5-9-17-12-29-8-11 4-18 11-24 18 1-10 2-24 5-39Z" fill="url(#brandDeep)"/>
+          </svg>
+        </span>
+        <span class="brand-name">Simple Life</span>
       </a>
-      <nav class="nav-links" aria-label="Main navigation">
+
+      <nav class="nav-links" id="desktopNav" aria-label="Main navigation">
         <a href="#services">Services</a>
         <a href="#how">How it works</a>
         <a href="#request">Request help</a>
         <a href="helper.html">Become a helper</a>
       </nav>
-      <a class="nav-cta" href="#request">Get help</a>
+
+      <a class="nav-cta" href="#request">Request Help</a>
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <div class="container mobile-menu-inner">
+        <a href="#services">Services</a>
+        <a href="#how">How it works</a>
+        <a href="#request">Request help</a>
+        <a href="helper.html">Become a helper</a>
+      </div>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero-redesign">
-      <div class="hero-blob hero-blob-a"></div>
-      <div class="hero-blob hero-blob-b"></div>
-      <div class="container hero-shell">
-        <div class="hero-copy-new">
-          <span class="eyebrow-pill">Everyday help, made simple</span>
-          <h1>More life.<br><span>Less little stuff.</span></h1>
-          <p>Tell us what needs to get done. We’ll help connect you with someone local who can take it off your plate.</p>
-          <div class="hero-request-bar">
-            <input id="heroTask" type="text" spellcheck="false" placeholder="What do you need help with?" aria-label="What do you need help with?">
-            <button id="heroContinue" type="button">Request help <span>→</span></button>
+    <section class="hero">
+      <div class="hero-orb hero-orb-one"></div>
+      <div class="hero-orb hero-orb-two"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Everyday help, made simple</span>
+          <h1>Life gets easier<br>when you can just ask.</h1>
+          <p>Reliable help for the little things that take up your time — so your day feels lighter, calmer, and a lot more manageable.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#request">Request Help <span aria-hidden="true">→</span></a>
+            <a class="btn btn-secondary" href="helper.html">Become a Helper</a>
           </div>
-          <div class="hero-proof"><span>Local help</span><span>Simple requests</span><span>No complicated app</span></div>
+
+          <div class="hero-quick">
+            <label for="heroTask">Or tell us what you need</label>
+            <div class="quick-row">
+              <input id="heroTask" type="text" spellcheck="false" placeholder="Clean the kitchen, organize a closet..." />
+              <button id="heroContinue" type="button" aria-label="Continue with this request">→</button>
+            </div>
+          </div>
         </div>
 
         <div class="hero-art" aria-hidden="true">
-          <div class="art-ring ring-a"></div><div class="art-ring ring-b"></div><div class="art-ring ring-c"></div>
-          <span class="float-dot dot-a"></span><span class="float-dot dot-b"></span><span class="float-dot dot-c"></span><span class="float-dot dot-d"></span><span class="float-dot dot-e"></span>
-          <div class="art-center">
-            <span class="mini-mark"><i></i><i></i><i></i><i></i></span>
-            <strong>One less thing<br>to think about.</strong>
+          <div class="hero-art-glow"></div>
+          <span class="accent-dot ad1"></span>
+          <span class="accent-dot ad2"></span>
+          <span class="accent-dot ad3"></span>
+          <span class="accent-dot ad4"></span>
+          <div class="hero-logo-wrap">
+            <svg class="hero-ribbon" viewBox="0 0 220 220">
+              <defs>
+                <linearGradient id="heroTeal" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#a5d4cf"/>
+                  <stop offset=".55" stop-color="#5aa1a3"/>
+                  <stop offset="1" stop-color="#2f747d"/>
+                </linearGradient>
+                <linearGradient id="heroDeep" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#2f7180"/>
+                  <stop offset="1" stop-color="#173f4c"/>
+                </linearGradient>
+                <linearGradient id="heroSand" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#f5e4c4"/>
+                  <stop offset="1" stop-color="#d4b178"/>
+                </linearGradient>
+              </defs>
+              <path d="M33 54C70 22 122 19 163 40c17 9 30 21 38 35-34-18-68-20-101-8-30 11-52 8-67-13Z" fill="url(#heroTeal)"/>
+              <path d="M31 76c42-25 90-26 130-8 16 7 29 17 39 29-35-13-68-11-100 1-29 11-52 5-69-22Z" fill="url(#heroSand)"/>
+              <path d="M39 98c42-18 88-12 122 14 29 22 34 56 18 82-9 14-23 25-39 32 15-18 18-38 8-55-13-22-42-30-70-21-26 8-45 26-58 46 2-24 6-63 19-98Z" fill="url(#heroDeep)"/>
+            </svg>
           </div>
-          <div class="art-pill pill-clean">Cleaning</div>
-          <div class="art-pill pill-yard">Yard work</div>
-          <div class="art-pill pill-org">Organizing</div>
+          <div class="hero-tag">SMALL TASKS<br><strong>BRIGHTER DAYS</strong></div>
         </div>
       </div>
     </section>
 
-    <section class="services-new" id="services">
+    <section class="section services" id="services">
       <div class="container">
-        <div class="section-intro two-col">
-          <div><span class="section-kicker">What we help with</span><h2>Three easy places to start.</h2></div>
-          <p>You can choose one of these, or just type exactly what you need. Simple Life is built around the task, not a complicated menu.</p>
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">Our services</span>
+            <h2>Three easy places to start.</h2>
+          </div>
+          <p>Pick one, or just tell us exactly what you need. Simple Life is built around the task — not a complicated menu.</p>
         </div>
-        <div class="service-strip">
-          <button class="service-tile service-choice" data-service="Cleaning" type="button"><span class="tile-num">01</span><div><h3>Cleaning</h3><p>Tidying, kitchen resets, rooms, and basic household cleaning.</p></div><span class="tile-arrow">↗</span></button>
-          <button class="service-tile service-choice" data-service="Yard Work" type="button"><span class="tile-num">02</span><div><h3>Yard work</h3><p>Basic outdoor cleanup, seasonal chores, and simple yard help.</p></div><span class="tile-arrow">↗</span></button>
-          <button class="service-tile service-choice" data-service="Organizing" type="button"><span class="tile-num">03</span><div><h3>Organizing</h3><p>Closets, rooms, unpacking, and getting spaces back in order.</p></div><span class="tile-arrow">↗</span></button>
+
+        <div class="service-grid">
+          <button class="service-card service-choice" type="button" data-service="Cleaning">
+            <span class="service-art service-art-clean" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="service-content"><strong>Cleaning</strong><small>Tidying, kitchen resets, rooms, and basic household cleaning.</small></span>
+            <span class="round-arrow">→</span>
+          </button>
+
+          <button class="service-card service-choice" type="button" data-service="Organizing">
+            <span class="service-art service-art-organize" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="service-content"><strong>Organizing</strong><small>Closets, rooms, unpacking, and getting spaces back in order.</small></span>
+            <span class="round-arrow">→</span>
+          </button>
+
+          <button class="service-card service-choice" type="button" data-service="Yard Work">
+            <span class="service-art service-art-yard" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="service-content"><strong>Yard Work</strong><small>Basic outdoor cleanup, seasonal chores, and simple yard help.</small></span>
+            <span class="round-arrow">→</span>
+          </button>
         </div>
       </div>
     </section>
 
-    <section class="how-new" id="how">
-      <div class="container how-shell">
-        <div class="how-head"><span class="section-kicker">How it works</span><h2>Ask. We match. You move on.</h2></div>
-        <div class="how-flow">
-          <article><span>1</span><h3>Tell us the task</h3><p>Share what you need, your timing, and your area.</p></article>
-          <div class="flow-line"></div>
-          <article><span>2</span><h3>We sort the details</h3><p>We review the request and find the right kind of local help.</p></article>
-          <div class="flow-line"></div>
-          <article><span>3</span><h3>Get it off your list</h3><p>Confirm the details and let Simple Life handle the rest.</p></article>
+    <section class="section how" id="how">
+      <div class="container">
+        <div class="section-title-only">
+          <span class="section-kicker">How it works</span>
+          <h2>Getting help is simple.</h2>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <span class="step-number mint">1</span>
+            <div><h3>Make a request</h3><p>Tell us what you need help with and when you need it.</p></div>
+          </article>
+          <span class="step-line" aria-hidden="true"></span>
+          <article class="step">
+            <span class="step-number blue">2</span>
+            <div><h3>Get matched</h3><p>We review the details and connect you with the right kind of help.</p></div>
+          </article>
+          <span class="step-line" aria-hidden="true"></span>
+          <article class="step">
+            <span class="step-number sand">3</span>
+            <div><h3>Get it done</h3><p>Confirm the plan and get one more thing off your list.</p></div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="request-redesign" id="request">
-      <div class="container request-shell">
-        <div class="request-visual" id="requestVisual" aria-hidden="true">
-          <div class="request-ring rr1"></div><div class="request-ring rr2"></div><div class="request-ring rr3"></div>
-          <span class="request-dot rd1"></span><span class="request-dot rd2"></span><span class="request-dot rd3"></span><span class="request-dot rd4"></span><span class="request-dot rd5"></span><span class="request-dot rd6"></span>
-          <div class="piece pc1"></div><div class="piece pc2"></div><div class="piece pc3"></div><div class="piece pc4"></div>
-          <div class="assembled-mark"><span></span><span></span><span></span><span></span></div>
-          <div class="visual-caption"><span>Simple Life</span><strong id="motionTitle">Ready when you are.</strong><small id="motionDetail">Start with any task.</small></div>
-        </div>
-
-        <div class="request-panel">
+    <section class="section request-section" id="request">
+      <div class="container request-grid">
+        <div class="request-copy">
           <span class="section-kicker">Request help</span>
-          <h2>Tell us what you need.</h2>
-          <p class="request-lead">No hunting through listings. No long setup. Just send the task.</p>
-          <form id="requestForm" name="service-request" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="service-request">
-            <p class="hidden-field"><label>Don’t fill this out: <input name="bot-field"></label></p>
-            <label>What do you need done?<textarea id="task" name="task" rows="4" spellcheck="false" placeholder="Example: I need help cleaning my kitchen this weekend." required></textarea></label>
-            <div class="form-row"><label>ZIP code<input id="zip" name="zip" type="text" inputmode="numeric" spellcheck="false" placeholder="21701" required></label><label>When?<select id="timing" name="timing" required><option value="">Choose one</option><option>As soon as possible</option><option>This week</option><option>This weekend</option><option>Next week</option><option>I’m flexible</option></select></label></div>
-            <div class="form-row"><label>First name<input id="name" name="name" type="text" spellcheck="false" placeholder="Your name" required></label><label>Email<input id="email" name="email" type="email" spellcheck="false" placeholder="you@example.com" required></label></div>
-            <button class="submit-btn" type="submit">Send request</button>
-            <p class="form-note">We’ll review your request and follow up with the next steps.</p>
-            <div id="formSuccess" class="success-message" hidden>Thanks! Your request was submitted successfully.</div>
-          </form>
+          <h2>Tell us what you need.<br>We’ll take it from there.</h2>
+          <p>No hunting through listings. No long setup. Just send the task and the details that matter.</p>
+
+          <div class="request-flow" id="requestVisual" aria-hidden="true">
+            <span class="flow-thread ft1"></span>
+            <span class="flow-thread ft2"></span>
+            <span class="flow-thread ft3"></span>
+            <span class="flow-node fn1"></span>
+            <span class="flow-node fn2"></span>
+            <span class="flow-node fn3"></span>
+            <div class="flow-center">
+              <span id="motionTitle">Ready when you are.</span>
+              <small id="motionDetail">Start with any task.</small>
+            </div>
+          </div>
         </div>
+
+        <form class="request-form" id="requestForm" name="service-request" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="service-request">
+          <p class="hidden-field"><label>Don’t fill this out: <input name="bot-field"></label></p>
+
+          <label class="full-field">What do you need done?
+            <textarea id="task" name="task" rows="4" spellcheck="false" placeholder="Example: I need help cleaning my kitchen this weekend." required></textarea>
+          </label>
+
+          <div class="form-row">
+            <label>ZIP code
+              <input id="zip" name="zip" type="text" inputmode="numeric" spellcheck="false" placeholder="21701" required>
+            </label>
+            <label>When?
+              <select id="timing" name="timing" required>
+                <option value="">Choose one</option>
+                <option>As soon as possible</option>
+                <option>This week</option>
+                <option>This weekend</option>
+                <option>Next week</option>
+                <option>I’m flexible</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>First name
+              <input id="name" name="name" type="text" spellcheck="false" placeholder="Your name" required>
+            </label>
+            <label>Email
+              <input id="email" name="email" type="email" spellcheck="false" placeholder="you@example.com" required>
+            </label>
+          </div>
+
+          <button class="submit-btn" type="submit">Send Request <span>→</span></button>
+          <p class="form-note">We’ll review your request and follow up with the next steps.</p>
+          <div id="formSuccess" class="success-message" hidden>Thanks! Your request was submitted successfully.</div>
+        </form>
       </div>
     </section>
 
-    <section class="helper-banner" id="helpers">
-      <div class="container helper-inner"><div><span class="section-kicker light">Become a helper</span><h2>Good at getting things done?</h2><p>Join a local network of dependable people helping with everyday tasks.</p></div><a href="helper.html">Apply to help <span>→</span></a></div>
+    <section class="section helper-section">
+      <div class="container">
+        <div class="helper-card">
+          <div class="helper-copy">
+            <span class="section-kicker light">Become a helper</span>
+            <h2>Good at getting things done?</h2>
+            <p>Join a local network of dependable people helping with cleaning, yard work, and organizing.</p>
+            <a class="btn helper-btn" href="helper.html">Become a Helper <span>→</span></a>
+          </div>
+          <div class="helper-art" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <svg viewBox="0 0 96 96">
+              <path d="M16 25C32 12 53 9 71 18c7 3 12 8 15 13-15-7-29-8-42-3-12 4-21 4-28-3Z" fill="#a4d0cb"/>
+              <path d="M15 34c18-10 38-11 55-3 6 3 11 6 15 11-15-5-29-5-42 0-12 5-21 3-28-8Z" fill="#ead3a7"/>
+              <path d="M18 43c18-7 38-5 53 5 12 8 15 21 8 32-4 7-10 12-17 15 7-8 8-16 4-23-5-9-17-12-29-8-11 4-18 11-24 18 1-10 2-24 5-39Z" fill="#245f69"/>
+            </svg>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer-new"><div class="container footer-new"><a class="brand footer-brand" href="#top"><span class="brand-mark light-mark"><span></span><span></span><span></span><span></span></span><span>Simple Life</span></a><p>Everyday help, made simple.</p><div><a href="#services">Services</a><a href="#request">Request help</a><a href="helper.html">Become a helper</a></div></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <a class="brand footer-brand" href="#top">
+        <span class="ribbon-logo ribbon-logo-small" aria-hidden="true">
+          <svg viewBox="0 0 96 96">
+            <path d="M16 25C32 12 53 9 71 18c7 3 12 8 15 13-15-7-29-8-42-3-12 4-21 4-28-3Z" fill="#a4d0cb"/>
+            <path d="M15 34c18-10 38-11 55-3 6 3 11 6 15 11-15-5-29-5-42 0-12 5-21 3-28-8Z" fill="#ead3a7"/>
+            <path d="M18 43c18-7 38-5 53 5 12 8 15 21 8 32-4 7-10 12-17 15 7-8 8-16 4-23-5-9-17-12-29-8-11 4-18 11-24 18 1-10 2-24 5-39Z" fill="#ffffff"/>
+          </svg>
+        </span>
+        <span class="brand-name">Simple Life</span>
+      </a>
+      <p>Everyday help, made simple.</p>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#request">Request help</a>
+        <a href="helper.html">Become a helper</a>
+      </div>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
