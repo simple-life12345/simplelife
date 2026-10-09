@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f6f3ed" />
   <title>Become a Helper — Simple Life</title>
-  <meta name="description" content="Apply to become a local Simple Life helper for cleaning, yard work, and organizing." />
+  <meta name="description" content="Apply to become a Simple Life helper for cleaning, organizing, and yard work." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -12,70 +13,54 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="container nav-wrap">
+    <div class="container nav">
       <a class="brand" href="index.html" aria-label="Simple Life home">
-        <span class="ribbon-logo ribbon-logo-small" aria-hidden="true">
-          <svg viewBox="0 0 96 96">
-            <defs>
-              <linearGradient id="helperTeal" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#91c9c5"/>
-                <stop offset="1" stop-color="#2f7b83"/>
-              </linearGradient>
-              <linearGradient id="helperDeep" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#245f69"/>
-                <stop offset="1" stop-color="#163f4c"/>
-              </linearGradient>
-              <linearGradient id="helperSand" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#f2dfbb"/>
-                <stop offset="1" stop-color="#d8b982"/>
-              </linearGradient>
-            </defs>
-            <path d="M16 25C32 12 53 9 71 18c7 3 12 8 15 13-15-7-29-8-42-3-12 4-21 4-28-3Z" fill="url(#helperTeal)"/>
-            <path d="M15 34c18-10 38-11 55-3 6 3 11 6 15 11-15-5-29-5-42 0-12 5-21 3-28-8Z" fill="url(#helperSand)"/>
-            <path d="M18 43c18-7 38-5 53 5 12 8 15 21 8 32-4 7-10 12-17 15 7-8 8-16 4-23-5-9-17-12-29-8-11 4-18 11-24 18 1-10 2-24 5-39Z" fill="url(#helperDeep)"/>
-          </svg>
-        </span>
-        <span class="brand-name">Simple Life</span>
+        <svg class="brand-symbol" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M9 18c13-8 29-8 42 0" />
+          <path d="M8 29c14-7 31-5 43 5" />
+          <path d="M10 41c12-4 24-1 31 7 5 6 5 12 2 16" />
+        </svg>
+        <span>Simple Life</span>
       </a>
       <a class="helper-back" href="index.html">Back home</a>
     </div>
   </header>
 
   <main class="helper-page">
-    <div class="container helper-page-grid">
-      <section class="helper-page-copy">
-        <span class="section-kicker">Become a helper</span>
-        <h1 class="helper-page-title">Good at getting things done?</h1>
-        <p>Simple Life is building a local group of dependable helpers for everyday jobs people want off their list.</p>
+    <div class="container helper-layout">
+      <section class="helper-copy">
+        <span class="eyebrow">Become a helper</span>
+        <h1 class="helper-title">Good at getting things done?</h1>
+        <p>We’re building a local group of dependable helpers for the everyday jobs people want off their list.</p>
 
-        <div class="helper-pill-stack" aria-label="Current helper services">
-          <div class="helper-pill"><i aria-hidden="true"></i><strong>Cleaning</strong></div>
-          <div class="helper-pill"><i aria-hidden="true"></i><strong>Yard work</strong></div>
-          <div class="helper-pill"><i aria-hidden="true"></i><strong>Organizing</strong></div>
+        <div class="helper-tags">
+          <span>Cleaning</span>
+          <span>Organizing</span>
+          <span>Yard work</span>
         </div>
 
-        <div class="helper-safety-note">Choose only work you’re comfortable doing. If you’re under 18, a parent or guardian should be involved before you accept any jobs.</div>
+        <div class="helper-note">Choose only work you’re comfortable doing. If you’re under 18, a parent or guardian should be involved before accepting any jobs.</div>
       </section>
 
-      <form class="helper-form-card" id="helperForm" name="helper-application" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+      <form class="helper-form" id="helperForm" name="helper-application" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="helper-application">
         <p class="hidden-field"><label>Don’t fill this out: <input name="bot-field"></label></p>
 
         <h2>Helper application</h2>
-        <p class="form-sub">Tell us a little about yourself and the kinds of tasks you’d be comfortable helping with.</p>
+        <p>Tell us a little about yourself and the kinds of work you’d be comfortable helping with.</p>
 
-        <div class="helper-form-row">
+        <div class="two-fields">
           <label>First name
-            <input id="helperName" name="name" type="text" required placeholder="Your name" spellcheck="false">
+            <input name="name" type="text" required placeholder="Your name" spellcheck="false">
           </label>
           <label>Email
-            <input id="helperEmail" name="email" type="email" required placeholder="you@example.com" spellcheck="false">
+            <input name="email" type="email" required placeholder="you@example.com" spellcheck="false">
           </label>
         </div>
 
-        <div class="helper-form-row">
+        <div class="two-fields">
           <label>ZIP code
-            <input id="helperZip" name="zip" type="text" inputmode="numeric" required placeholder="21701" spellcheck="false">
+            <input name="zip" type="text" inputmode="numeric" required placeholder="21701" spellcheck="false">
           </label>
           <label>Age range
             <select name="age_range" required>
@@ -86,24 +71,23 @@
           </label>
         </div>
 
-        <div class="helper-task-label">What can you help with?</div>
+        <label>What can you help with?</label>
         <div class="task-options">
           <label class="task-option"><input type="checkbox" name="services" value="Cleaning"><span>Cleaning</span></label>
-          <label class="task-option"><input type="checkbox" name="services" value="Yard Work"><span>Yard work</span></label>
           <label class="task-option"><input type="checkbox" name="services" value="Organizing"><span>Organizing</span></label>
+          <label class="task-option"><input type="checkbox" name="services" value="Yard Work"><span>Yard work</span></label>
         </div>
 
         <label>Tell us about your experience
-          <textarea id="helperTasks" name="experience" rows="4" placeholder="Anything that helps us understand what you're comfortable doing." spellcheck="false"></textarea>
+          <textarea name="experience" rows="4" spellcheck="false" placeholder="Anything that helps us understand what you're comfortable doing."></textarea>
         </label>
 
         <label>Typical availability
-          <input name="availability" type="text" placeholder="Example: Weekday afternoons and Saturdays" spellcheck="false">
+          <input name="availability" type="text" spellcheck="false" placeholder="Example: Weekday afternoons and Saturdays">
         </label>
 
-        <button class="helper-submit" type="submit">Submit Application</button>
-        <p class="helper-form-note">Submitting an application does not guarantee placement or work.</p>
-        <div id="helperSuccess" class="success-message" hidden>Thanks! Your application was submitted successfully.</div>
+        <button class="helper-submit" type="submit">Submit application</button>
+        <div id="helperSuccess" class="success-message" hidden>Thanks — your application was sent.</div>
       </form>
     </div>
   </main>
