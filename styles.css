@@ -64,17 +64,17 @@ img,svg{display:block;max-width:100%}
 }
 .logo-ring{
   fill:none;
-  stroke:#5f7f9f;
+  stroke:#2f7379;
   stroke-width:1.8;
 }
 .logo-s{
   fill:none;
-  stroke-width:4.2;
+  stroke-width:3.8;
   stroke-linecap:round;
   stroke-linejoin:round;
 }
-.logo-s-dark{stroke:#4f7198}
-.logo-s-light{stroke:#9bb6d1}
+.logo-s-dark{stroke:#2f7379}
+.logo-s-light{stroke:#9fc7c6}
 .desktop-nav{
   margin-left:auto;
   display:flex;
@@ -231,17 +231,17 @@ img,svg{display:block;max-width:100%}
 }
 .hero-logo-ring{
   fill:none;
-  stroke:#5f7f9f;
+  stroke:#2f7379;
   stroke-width:8;
 }
 .hero-logo-s{
   fill:none;
-  stroke-width:20;
+  stroke-width:16;
   stroke-linecap:round;
   stroke-linejoin:round;
 }
-.hero-logo-dark{stroke:#4f7198}
-.hero-logo-light{stroke:#9bb6d1}
+.hero-logo-dark{stroke:#2f7379}
+.hero-logo-light{stroke:#9fc7c6}
 .float-dot{position:absolute;border-radius:50%}
 .float-dot.one{width:11px;height:11px;background:#d7b980;right:13%;top:18%}
 .float-dot.two{width:7px;height:7px;background:#6a9ea5;left:13%;bottom:24%}
