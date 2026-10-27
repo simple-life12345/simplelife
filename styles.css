@@ -59,10 +59,19 @@ img,svg{display:block;max-width:100%}
   width:40px;height:40px;
   overflow:visible;
 }
-.logo-ribbon{stroke:none}
-.logo-ribbon-a{fill:var(--teal-light)}
-.logo-ribbon-b{fill:var(--sand)}
-.logo-ribbon-c{fill:var(--teal)}
+.logo-ring{
+  fill:none;
+  stroke:#5f7f9f;
+  stroke-width:1.8;
+}
+.logo-s{
+  fill:none;
+  stroke-width:5.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.logo-s-dark{stroke:#4f7198}
+.logo-s-light{stroke:#9bb6d1}
 .desktop-nav{
   margin-left:auto;
   display:flex;
