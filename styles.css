@@ -62,15 +62,10 @@ img,svg{display:block;max-width:100%}
   flex:0 0 40px;
   overflow:visible;
 }
-.logo-ring{
-  fill:none;
-  stroke:#2f7379;
-  stroke-width:1.8;
-}
 .logo-s{
   fill:none;
-  stroke-width:3.8;
-  stroke-linecap:round;
+  stroke-width:6.2;
+  stroke-linecap:butt;
   stroke-linejoin:round;
 }
 .logo-s-dark{stroke:#2f7379}
@@ -224,20 +219,15 @@ img,svg{display:block;max-width:100%}
 }
 .hero-mark{
   position:absolute;
-  width:74%;
-  right:8%;
-  bottom:3%;
-  filter:drop-shadow(0 26px 24px rgba(38,74,78,.12));
-}
-.hero-logo-ring{
-  fill:none;
-  stroke:#2f7379;
-  stroke-width:8;
+  width:68%;
+  right:16%;
+  bottom:6%;
+  filter:drop-shadow(0 26px 24px rgba(38,74,78,.10));
 }
 .hero-logo-s{
   fill:none;
-  stroke-width:16;
-  stroke-linecap:round;
+  stroke-width:24;
+  stroke-linecap:butt;
   stroke-linejoin:round;
 }
 .hero-logo-dark{stroke:#2f7379}
